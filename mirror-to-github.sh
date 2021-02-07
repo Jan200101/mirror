@@ -19,7 +19,7 @@ function mirror_github_repo {
 
   api_resp=$(curl --silent --header "Authorization: token ${MIRROR_GITHUB_TOKEN}" -H "Accept: application/json" -H "Content-type: application/json" -X POST -d "{ \"name\": \"$repo_name\", \"visibility\": \"public\", \"description\": \"Mirror of ${1}\" }" "https://${MIRROR_GITHUB_API}/repos")
 
-  export MIRROR_URL="https://github.com/${MIRROR_GITHUB_ACCOUNT}/${repo_name}"
+  export MIRROR_URL="${MIRROR_GITHUB_URL}/${repo_name}"
 
   mirror_repo $1
 }
